@@ -1,0 +1,144 @@
+/* Animations des lettres */
+h2 span,
+p span {
+  opacity: 0;
+}
+.letter00 {
+  animation: letters 5s ease 000ms forwards;
+}
+.letter01 {
+  animation: letters 1s ease 50ms forwards;
+}
+.letter02 {
+  animation: letters 1s ease 100ms forwards;
+}
+.letter03 {
+  animation: letters 1s ease 150ms forwards;
+}
+.letter04 {
+  animation: letters 1s ease 200ms forwards;
+}
+.letter05 {
+  animation: letters 1s ease 250ms forwards;
+}
+.letter07 {
+  animation: letters 1s ease 350ms forwards;
+}
+.letter08 {
+  animation: letters 1s ease 400ms forwards;
+}
+.letter10 {
+  animation: letters 1s ease 500ms forwards;
+}
+.letter11 {
+  animation: letters 1s ease 550ms forwards;
+}
+.letter12 {
+  animation: letters 1s ease 600ms forwards;
+}
+.letter13 {
+  animation: letters 1s ease 650ms forwards;
+}
+.letter15 {
+  animation: letters 1s ease 750ms forwards;
+}
+.letter16 {
+  animation: letters 1s ease 800ms forwards;
+}
+.letter17 {
+  animation: letters 1s ease 850ms forwards;
+}
+.letter18 {
+  animation: letters 1s ease 900ms forwards;
+}
+.letter19 {
+  animation: letters 1s ease 950ms forwards;
+}
+.letter20 {
+  animation: letters 1s ease 1000ms forwards;
+}
+.letter21 {
+  animation: letters 1s ease 1050ms forwards;
+}
+.letter23 {
+  animation: letters 1s ease 1100ms forwards;
+}
+.letter24 {
+  animation: letters 1s ease 1150ms forwards;
+}
+.letter25 {
+  animation: letters 1s ease 1200ms forwards;
+}
+.letter26 {
+  animation: letters 1s ease 1250ms forwards;
+}
+.letter27 {
+  animation: letters 1s ease 1300ms forwards;
+}
+.letter28 {
+  animation: letters 1s ease 1350ms forwards;
+}
+.letter29 {
+  animation: letters 1s ease 1400ms forwards;
+}
+.letter30 {
+  animation: letters 1s ease 1450ms forwards;
+}
+.letter31 {
+  animation: letters 1s ease 1500ms forwards;
+}
+.letter32 {
+  animation: letters 1s ease 1550ms forwards;
+}
+.letter33 {
+  animation: letters 1s ease 1600ms forwards;
+}
+.letter34 {
+  animation: letters 1s ease 1650ms forwards;
+}
+.letter35 {
+  animation: letters 1s ease 1700ms forwards;
+}
+.letter36 {
+  animation: letters 1s ease 1750ms forwards;
+}
+.letter37 {
+  animation: letters 1s ease 1800ms forwards;
+}
+.letter38 {
+  animation: letters 1s ease 1850ms forwards;
+}
+.letter39 {
+  animation: letters 1s ease 1900ms forwards;
+}
+.letter40 {
+  animation: letters 1s ease 1950ms forwards;
+}
+.letter41 {
+  animation: letters 1s ease 2000ms forwards;
+}
+.letter42 {
+  animation: letters 1s ease 2050ms forwards;
+}
+.letter43 {
+  animation: letters 1s ease 2100ms forwards;
+}
+.letter44 {
+  animation: letters 1s ease 2150ms forwards;
+}
+.letter45 {
+  animation: letters 1s ease 2200ms forwards;
+}
+.letter46 {
+  animation: letters 1s ease 2250ms forwards;
+}
+
+@keyframes letters {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
