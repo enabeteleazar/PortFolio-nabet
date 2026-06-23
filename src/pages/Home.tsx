@@ -1,23 +1,27 @@
-import { About } from '../components/home/About';
-import { Contact } from '../components/home/Contact';
-import { Github } from '../components/home/Github';
+import { lazy, Suspense } from 'react';
 import { Hero } from '../components/home/Hero';
-import { Journey } from '../components/home/Journey';
-import { NeronOS } from '../components/home/NeronOS';
-import { Projects } from '../components/home/Projects';
-import { Skills } from '../components/home/Skills';
+
+const About = lazy(() => import('../components/home/About').then(({ About }) => ({ default: About })));
+const Contact = lazy(() => import('../components/home/Contact').then(({ Contact }) => ({ default: Contact })));
+const Github = lazy(() => import('../components/home/Github').then(({ Github }) => ({ default: Github })));
+const Journey = lazy(() => import('../components/home/Journey').then(({ Journey }) => ({ default: Journey })));
+const NeronOS = lazy(() => import('../components/home/NeronOS').then(({ NeronOS }) => ({ default: NeronOS })));
+const Projects = lazy(() => import('../components/home/Projects').then(({ Projects }) => ({ default: Projects })));
+const Skills = lazy(() => import('../components/home/Skills').then(({ Skills }) => ({ default: Skills })));
 
 export function Home() {
   return (
     <main>
       <Hero />
-      <About />
-      <NeronOS />
-      <Skills />
-      <Projects />
-      <Github />
-      <Journey />
-      <Contact />
+      <Suspense fallback={<div className="min-h-screen bg-slate-950" aria-label="Chargement du contenu" />}>
+        <About />
+        <NeronOS />
+        <Skills />
+        <Projects />
+        <Github />
+        <Journey />
+        <Contact />
+      </Suspense>
     </main>
   );
 }
