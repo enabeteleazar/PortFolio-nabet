@@ -11,6 +11,10 @@ Le site présente Eléazar Nabet comme développeur Full Stack, créateur de Né
 - Vite
 - Tailwind CSS
 - Lucide React
+- Framer Motion
+- Zod
+- Vitest
+- MDX
 
 ## Contenu mis en avant
 
@@ -47,9 +51,18 @@ npm run preview
 
 Le projet est compatible Vercel. La commande de build est `npm run build` et le dossier de sortie est `dist`.
 
+## Configuration du formulaire
+
+La fonction Vercel `/api/contact` utilise l'API Resend. Configurer :
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_EMAIL=contact@portfolio.fr.nf
+```
+
 ## Notes
 
 - Le PHP, jQuery, Bootstrap local et les anciens fichiers SCSS/CSS ont été supprimés.
-- Le formulaire de contact utilise un lien `mailto:` compatible avec un site statique. Pour un formulaire de production, connecter une API Vercel, Resend, Formspree ou équivalent.
+- Le formulaire utilise une fonction Vercel et conserve le lien email comme solution de repli.
 - Le CV téléchargeable est fourni au format Markdown dans `public/cv-eleazar-nabet.md`.
 - Les compétences affichées sont limitées aux informations présentes dans le portfolio et dans les dépôts publics GitHub analysés.

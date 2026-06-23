@@ -25,6 +25,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// Le hook partage volontairement le même contexte que le provider.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme doit être utilisé dans ThemeProvider');
