@@ -1,102 +1,60 @@
-const url1 = "https://jacekjeznach.com/"
-const url2 = "https://aremacs.netlify.app"
-const url3 = "https://dice-roller0-game.netlify.app"
-const url4 = "https://orane-patisserie.netlify.app"
-const url5 = "https://monmarche.netlify.app"
+const projects = {
+  site1: {
+    title: "Jacek Jeznach",
+    category: "Portfolio creatif",
+    description: "Une reference visuelle forte pour un portfolio anime et expressif.",
+    url: "https://jacekjeznach.com/"
+  },
+  site2: {
+    title: "Aremac's",
+    category: "Site vitrine",
+    description: "Une interface de presentation claire pour valoriser une activite en ligne.",
+    url: "https://aremacs.netlify.app"
+  },
+  site3: {
+    title: "Dice Roll",
+    category: "Jeu web",
+    description: "Un projet interactif centre sur la logique JavaScript et le feedback utilisateur.",
+    url: "https://dice-roller0-game.netlify.app"
+  },
+  site4: {
+    title: "Patiss'Orane",
+    category: "Patisserie",
+    description: "Un univers gourmand avec une structure simple pour presenter produits et ambiance.",
+    url: "https://orane-patisserie.netlify.app"
+  },
+  site5: {
+    title: "Mon Marche",
+    category: "Commerce local",
+    description: "Une approche utile et directe pour mettre en avant des produits de marche.",
+    url: "https://monmarche.netlify.app"
+  }
+};
 
+function displayProject(projectId) {
+  const project = projects[projectId];
+  const canvas = document.getElementById("project-canvas");
+  const canvasTitle = document.getElementById("project-canvas-title");
+  const category = document.getElementById("project-category");
+  const description = document.getElementById("project-description");
+  const title = document.getElementById("project-title");
+  const link = document.getElementById("project-link");
 
+  if (!project || !canvas || !canvasTitle || !category || !description || !title || !link) {
+    return;
+  }
 
-// Affichage sur Responviv du site par clic 
-function displayProject(btnId) {
-switch(btnId) {
-  case "site1":
-    document.getElementById("desktop").src = url1
-    document.getElementById('btn1').className = "btn-info"
-    document.getElementById('btn2').className = "btn-secondary"
-    document.getElementById('btn3').className = "btn-secondary"
-    document.getElementById('btn4').className = "btn-secondary"
-    document.getElementById('btn5').className = "btn-secondary"
-    break;
+  canvas.className = "project-canvas theme-" + projectId;
+  canvas.setAttribute("aria-label", "Apercu stylise du projet " + project.title);
+  canvasTitle.textContent = project.title;
+  category.textContent = project.category;
+  description.textContent = project.description;
+  title.textContent = project.title;
+  link.href = project.url;
 
-  case "site2":
-    document.getElementById("desktop").src = url2
-    document.getElementById('btn1').className = "btn-secondary"
-    document.getElementById('btn2').className = "btn-info" 
-    document.getElementById('btn3').className = "btn-secondary"
-    document.getElementById('btn4').className = "btn-secondary"
-    document.getElementById('btn5').className = "btn-secondary"
-    break;
-
-  case "site3":
-    document.getElementById("desktop").src = url3
-    document.getElementById('btn1').className = "btn-secondary"
-    document.getElementById('btn2').className = "btn-secondary"
-    document.getElementById('btn3').className = "btn-info"
-    document.getElementById('btn4').className = "btn-secondary"
-    document.getElementById('btn5').className = "btn-secondary"
-    break; 
-
-  case "site4":
-    document.getElementById("desktop").src = url4
-    document.getElementById('btn1').className = "btn-secondary"
-    document.getElementById('btn2').className = "btn-secondary"
-    document.getElementById('btn3').className = "btn-secondary"
-    document.getElementById('btn4').className = "btn-info"
-    document.getElementById('btn5').className = "btn-secondary"
-    break;
-  case "site5":
-    document.getElementById("desktop").src = url5
-    document.getElementById('btn1').className = "btn-secondary"
-    document.getElementById('btn2').className = "btn-secondary"
-    document.getElementById('btn3').className = "btn-secondary"
-    document.getElementById('btn4').className = "btn-secondary"
-    document.getElementById('btn5').className = "btn-info"
-    break;
+  document.querySelectorAll(".project-tab").forEach(function (button) {
+    const isSelected = button.id === "btn" + projectId.replace("site", "");
+    button.classList.toggle("is-active", isSelected);
+    button.setAttribute("aria-selected", String(isSelected));
+  });
 }
-}
-
-
-// Fonction de Recup et Affichage Résolution Ecran 
-function getResolution() {
-  alert("Votre résolution d'écran est: " + screen.width + "x" + screen.height);
-}
-
-
-// Fonction Scroll To The Top 
-function scrollToTop() {
-  window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-  })
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
- 
