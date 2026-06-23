@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Hero } from '../components/home/Hero';
+import { Reveal } from '../components/ui/Reveal';
 
 const About = lazy(() => import('../components/home/About').then(({ About }) => ({ default: About })));
 const Contact = lazy(() => import('../components/home/Contact').then(({ Contact }) => ({ default: Contact })));
@@ -14,13 +15,13 @@ export function Home() {
     <main>
       <Hero />
       <Suspense fallback={<div className="min-h-screen bg-slate-950" aria-label="Chargement du contenu" />}>
-        <About />
-        <NeronOS />
-        <Skills />
-        <Projects />
-        <Github />
-        <Journey />
-        <Contact />
+        <Reveal><About /></Reveal>
+        <Reveal><NeronOS /></Reveal>
+        <Reveal><Skills /></Reveal>
+        <Reveal><Projects /></Reveal>
+        <Reveal><Github /></Reveal>
+        <Reveal><Journey /></Reveal>
+        <Reveal><Contact /></Reveal>
       </Suspense>
     </main>
   );
