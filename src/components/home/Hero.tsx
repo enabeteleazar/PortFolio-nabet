@@ -1,5 +1,5 @@
 import { ArrowRight, Github, Mail, Sparkles } from 'lucide-react';
-import avatarUrl from '../../assets/images/avatar_icon.png';
+import avatarUrl from '../../assets/images/avatar.webp';
 import { githubProfile } from '../../data/github';
 import { heroSteps, heroTags } from '../../data/site';
 import { AppLink } from '../ui/AppLink';
@@ -13,6 +13,10 @@ function HeroVisual() {
             className="size-14 rounded-md border border-white/10 object-cover"
             src={avatarUrl}
             alt="Avatar d'Eléazar Nabet"
+            loading="eager"
+            fetchPriority="high"
+            width="274"
+            height="184"
           />
           <div>
             <p className="font-bold text-white">NéronOS Control</p>
