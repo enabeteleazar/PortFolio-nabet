@@ -54,9 +54,9 @@ export function Hero() {
             <Sparkles size={16} aria-hidden="true" />
             Développeur Full Stack · Créateur de NéronOS
           </p>
-          <h5 className="text-balance text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="text-balance text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
             Je conçois des applications web, des agents IA et des systèmes intelligents.
-          </h5>
+          </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
             Je développe des solutions modernes capables d’automatiser des tâches complexes, de connecter des services
             et de fonctionner dans des environnements Linux auto-hébergés.

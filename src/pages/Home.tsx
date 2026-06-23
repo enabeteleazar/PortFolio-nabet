@@ -12,7 +12,7 @@ const Skills = lazy(() => import('../components/home/Skills').then(({ Skills }) 
 
 export function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero />
       <Suspense fallback={<div className="min-h-screen bg-slate-950" aria-label="Chargement du contenu" />}>
         <Reveal><About /></Reveal>
