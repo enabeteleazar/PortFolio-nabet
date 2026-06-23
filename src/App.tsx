@@ -1,8 +1,11 @@
 import { Footer } from './components/layout/Footer';
 import { Navbar } from './components/layout/Navbar';
 import { Home } from './pages/Home';
+import { Blog } from './pages/Blog';
 
 export function App() {
+  const isBlog = window.location.pathname.startsWith('/blog');
+
   return (
     <div className="min-h-screen bg-slate-950 text-zinc-100">
       <a
@@ -12,7 +15,7 @@ export function App() {
         Aller au contenu principal
       </a>
       <Navbar />
-      <Home />
+      {isBlog ? <Blog /> : <Home />}
       <Footer />
     </div>
   );

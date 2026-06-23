@@ -1,0 +1,17 @@
+<p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">Architecture · 23 juin 2026</p>
+
+# Construire NéronOS comme un produit logiciel durable
+
+NéronOS part d’une idée simple : un assistant local doit rester observable, contrôlable et utile avant de chercher une autonomie maximale.
+
+## Une architecture en couches
+
+Le système sépare le Core, le Goal Engine, le Runtime, les agents spécialisés et les fournisseurs LLM. Cette séparation permet de faire évoluer chaque bloc sans coupler toute l’application à un modèle ou à une interface.
+
+## La stabilité avant l’autonomie
+
+Le RuntimeGovernor applique plusieurs modes de fonctionnement — normal, prudent, dégradé et survie — afin que l’exécution s’adapte à l’état réel de la machine et des services.
+
+## Prochaine étape
+
+Les prochains travaux portent sur la supervision, les tests d’intégration et la documentation publique des flux entre objectifs, planification, création d’agents et exécution.

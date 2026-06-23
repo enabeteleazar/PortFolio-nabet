@@ -11,6 +11,7 @@ export const navItems: NavItem[] = [
   { href: '#github', label: 'GitHub' },
   { href: '#journey', label: 'Parcours' },
   { href: '#contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 export const heroTags = [
