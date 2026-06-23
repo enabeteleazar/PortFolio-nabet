@@ -1,30 +1,32 @@
 import { ArrowRight } from 'lucide-react';
-import { type FormEvent, useMemo, useState } from 'react';
-import { contactEmail, contactLinks } from '../../data/site';
+import { type FormEvent, useState } from 'react';
+import { contactLinks } from '../../data/site';
 import { SectionHeading } from '../ui/SectionHeading';
 
 export function Contact() {
-  const subject = 'Contact depuis le portfolio';
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     message: '',
+    company: '',
   });
 
-  const mailtoHref = useMemo(() => {
-    const body = [
-      `Nom : ${formState.name || ''}`,
-      `Email : ${formState.email || ''}`,
-      '',
-      formState.message || '',
-    ].join('\n');
-
-    return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [formState]);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    window.location.href = mailtoHref;
+    setStatus('sending');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+      if (!response.ok) throw new Error('Échec de l’envoi');
+      setStatus('success');
+      setFormState({ name: '', email: '', message: '', company: '' });
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
@@ -60,6 +62,16 @@ export function Contact() {
 
         <form className="rounded-xl border border-white/10 bg-white/[0.04] p-5 sm:p-6" onSubmit={handleSubmit}>
           <div className="grid gap-5">
+            <label className="sr-only" aria-hidden="true">
+              Entreprise
+              <input
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formState.company}
+                onChange={(event) => setFormState((state) => ({ ...state, company: event.target.value }))}
+              />
+            </label>
             <label className="grid gap-2 text-sm font-semibold text-zinc-200">
               Nom
               <input
@@ -103,10 +115,15 @@ export function Contact() {
             <button
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
               type="submit"
+              disabled={status === 'sending'}
             >
-              Envoyer le message
+              {status === 'sending' ? 'Envoi en cours…' : 'Envoyer le message'}
               <ArrowRight size={17} aria-hidden="true" />
             </button>
+            <p className="min-h-6 text-sm text-zinc-300" role="status" aria-live="polite">
+              {status === 'success' && 'Message envoyé. Merci, je vous répondrai rapidement.'}
+              {status === 'error' && 'Envoi impossible. Vous pouvez utiliser le lien email affiché à gauche.'}
+            </p>
           </div>
         </form>
       </div>
