@@ -1,5 +1,6 @@
 import { BrainCircuit, Code2, Database, Terminal, Zap } from 'lucide-react';
 import type { SkillGroup } from '../types/portfolio';
+import { skillGroupsSchema } from './schemas';
 
 export const skillGroups: SkillGroup[] = [
   {
@@ -33,6 +34,8 @@ export const skillGroups: SkillGroup[] = [
     skills: ['Home Assistant', 'Telegram Bot', 'Twilio', 'Google Calendar API', 'Siri Shortcuts', 'Workflows'],
   },
 ];
+
+skillGroupsSchema.parse(skillGroups);
 
 export const techStack = [
   'React',

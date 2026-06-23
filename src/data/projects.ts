@@ -1,4 +1,5 @@
 import type { Project } from '../types/portfolio';
+import { projectsSchema } from './schemas';
 
 export const projects: Project[] = [
   {
@@ -107,3 +108,5 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/enabeteleazar/Gestion-Batterie-iOS',
   },
 ];
+
+projectsSchema.parse(projects);

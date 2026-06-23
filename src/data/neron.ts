@@ -1,5 +1,6 @@
 import { Bot, BrainCircuit, Mic, ServerCog, ShieldCheck, Workflow } from 'lucide-react';
 import type { LabeledContent, NeronModule } from '../types/portfolio';
+import { roadmapSchema } from './schemas';
 
 export const neronModules: NeronModule[] = [
   {
@@ -40,6 +41,8 @@ export const neronRoadmap = [
   'Connecter progressivement des intégrations externes, dont MCP en objectif futur.',
   'Documenter les modules publics avec des schémas et captures produit.',
 ];
+
+roadmapSchema.parse(neronRoadmap);
 
 export const neronOverview: LabeledContent[] = [
   { label: 'Objectif', value: 'Assistance continue, supervision, automatisation progressive.' },
