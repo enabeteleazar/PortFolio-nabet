@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #f4f7f3;
-  background: #080b0a;
+  color: #f8fafc;
+  background: #020617;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,14 +22,16 @@ body {
 }
 
 ::selection {
-  color: #07100d;
-  background: #8bf0c2;
+  color: #020617;
+  background: #67e8f9;
 }
 
 .site-grid {
   background-image:
-    linear-gradient(rgba(139, 240, 194, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 240, 194, 0.08) 1px, transparent 1px);
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.18), transparent 34rem),
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 32rem),
+    linear-gradient(rgba(34, 211, 238, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.08) 1px, transparent 1px);
   background-size: 42px 42px;
 }
 
