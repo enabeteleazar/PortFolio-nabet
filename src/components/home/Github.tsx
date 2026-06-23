@@ -1,9 +1,17 @@
 import { ExternalLink, Github as GithubIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { githubProfile, githubStats, openSourceRepos } from '../../data/github';
+import { fetchGithubData, type GithubData } from '../../services/github';
 import { AppLink } from '../ui/AppLink';
 import { SectionHeading } from '../ui/SectionHeading';
 
 export function Github() {
+  const [data, setData] = useState<GithubData>({ stats: githubStats, repositories: openSourceRepos, source: 'fallback' });
+
+  useEffect(() => {
+    void fetchGithubData().then(setData);
+  }, []);
+
   return (
     <section id="github" className="border-b border-white/10 bg-slate-950 px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -25,13 +33,16 @@ export function Github() {
             </div>
 
             <dl className="mt-6 grid gap-3 sm:grid-cols-2">
-              {githubStats.map((stat) => (
+              {data.stats.map((stat) => (
                 <div className="rounded-lg border border-white/10 bg-slate-950/70 p-4" key={stat.label}>
                   <dt className="text-xs font-bold uppercase tracking-[0.18em] text-violet-200">{stat.label}</dt>
                   <dd className="mt-2 font-semibold text-white">{stat.value}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-3 text-xs text-zinc-500" aria-live="polite">
+              Données : {data.source === 'api' ? 'GitHub API, cache 15 min' : 'repli local'}
+            </p>
 
             <div className="mt-6">
               <AppLink href={githubProfile}>
@@ -42,7 +53,7 @@ export function Github() {
           </div>
 
           <div className="grid gap-3">
-            {openSourceRepos.map((repo) => (
+            {data.repositories.map((repo) => (
               <a
                 className="group flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-300/35 hover:bg-cyan-300/8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
                 href={repo.url}
