@@ -2,7 +2,7 @@ import { Activity, Github, Globe2, Layers3, Mail, Network } from 'lucide-react';
 import type { ContentCard, LabeledContent, LinkItem, NavItem } from '../types/portfolio';
 import { githubProfile } from './github';
 
-export const contactEmail = 'contact@portfolio.fr.nf';
+export const contactEmail = 'nabet.eleazar@gmail.com';
 
 export const navItems: NavItem[] = [
   { href: '#neronos', label: 'NéronOS' },
@@ -51,5 +51,4 @@ export const aboutCards: ContentCard[] = [
 export const contactLinks: LinkItem[] = [
   { icon: Mail, label: contactEmail, href: `mailto:${contactEmail}` },
   { icon: Github, label: 'github.com/enabeteleazar', href: githubProfile },
-  { icon: Globe2, label: 'Portfolio compatible Vercel', href: '#top' },
 ];
