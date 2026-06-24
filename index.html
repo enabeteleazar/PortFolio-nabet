@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -22,7 +26,10 @@
       property="og:description"
       content="Développeur Full Stack orienté applications modernes, agents IA, automatisation, Linux, auto-hébergement et architecture NéronOS."
     />
-    <meta property="og:image" content="/images/avatar_icon.png" />
+    <meta property="og:image" content="https://portfolio.fr.nf/images/social-preview.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portfolio d'Eléazar Nabet, développeur Full Stack et créateur de NéronOS" />
     <meta property="og:url" content="https://portfolio.fr.nf/" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,10 +38,32 @@
       name="twitter:description"
       content="Portfolio moderne autour du développement Full Stack, des agents IA, de Linux, de l'automatisation et de NéronOS."
     />
-    <meta name="twitter:image" content="/images/avatar_icon.png" />
+    <meta name="twitter:image" content="https://portfolio.fr.nf/images/social-preview.webp" />
+    <meta name="twitter:image:alt" content="Portfolio d'Eléazar Nabet et présentation de NéronOS" />
 
     <link rel="canonical" href="https://portfolio.fr.nf/" />
-    <link rel="icon" type="image/png" href="/images/avatar_icon.png" />
+    <link rel="icon" type="image/webp" href="/images/social-preview.webp" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Eléazar Nabet",
+        "url": "https://portfolio.fr.nf/",
+        "sameAs": ["https://github.com/enabeteleazar"],
+        "jobTitle": "Développeur Full Stack",
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Python",
+          "FastAPI",
+          "Agents IA",
+          "Linux",
+          "Automatisation",
+          "NéronOS"
+        ]
+      }
+    </script>
     <title>Eléazar Nabet | Développeur Full Stack & créateur de NéronOS</title>
   </head>
   <body>
